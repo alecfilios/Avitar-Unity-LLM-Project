@@ -1,0 +1,14 @@
+<statistics>
+	<statistics>
+		<aggregationStyle>discrete</aggregationStyle>
+		<endDate>1581031060.454305</endDate>
+		<sumQuantity>3827.433418133282</sumQuantity>
+		<minimumQuantity>0</minimumQuantity>
+		<startDate>1580946606.204833</startDate>
+		<mostRecentQuantity>0</mostRecentQuantity>
+		<averageQuantity>0</averageQuantity>
+		<maximumQuantity>0</maximumQuantity>
+	</statistics>
+	<datatype>HKQuantityTypeIdentifierStepCount</datatype>
+	<unit>count</unit>
+</statistics>

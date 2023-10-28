@@ -1,0 +1,90 @@
+1.14
+	- add a missing availability check for older iOS (alcoholic beverages)
+	- add a method to stop an Observer Query
+1.13
+	- refactored default unit for quantity sample code
+	- refactored Data Type Drawer
+	- update data types for iOS 16
+1.12
+	- adding preliminary (but mostly useless) support for background delivery
+	- fix how entitlements are included in Xcode project
+	- fix a crash that could occur in certain locales (thanks to Lyudmil Pashayanov)
+	- update some outdated code samples in the README
+	- update data types for iOS 15
+1.11.3
+	- fix bug w/missing default units for Heart Rate Variability
+	- add a handful of other missing default units
+	- pass options to HKStatisticsQuery
+1.11.2
+	- fix a bug with the Environmental Audio Exposure quantity type
+	- adding data types from iOS 14.x
+	- add a couple of missing & overlooked data types
+1.11.1
+	- fix XML parsing issue for locales that use space as a thousands separator
+1.11
+	- add support for new category types in iOS 13.6
+	- new support for iOS 14
+	- preliminary support for Health data metadata
+	- support for saving energy/distance with exercises
+	- fix for XML parsing bug with (un)localized quantities
+	- rework WriteWorkout API to support localized units for distance
+	- other minor additions/fixes
+1.10
+	- FULLY break Clinical Record API out into its own module to (hopefully) prevent false positive in App Store review.
+1.9
+	- support for a bunch of new things in iOS 13:
+		- cumulative & discrete quantity samples
+		- new aggregation types
+		- added new category types
+		- added new workout types
+	- restructuring BEHealthKit to be more modular; breaking Clinical Record API into an optional module
+	- remove custom Xcode API for Unity 2019
+	- expanded dummy data support (heart rate data)
+	- more minor bugfixes
+1.8.1
+	- add source (device) information to samples
+1.8
+	- BIG UPDATE!
+	- added support for HKObserverQueries
+	- add support for a simplified statistics query that merges overlapping samples from different devices. 
+	- added support for generalized Health Statistics queries and Health Statistics Collection queries
+	- added support for Clinical Document Architecture (CDA) queries
+	- added support for Fast Healthcare Interoperability Resources (FHIR) queries
+	- added wrapper class for NSPredicates, used in some methods for filtering results
+	- minor bugfixes for: combined samples, characteristics, workout datatypes, default units
+	- reworked availability check for older iOS versions
+	- *started* adding support for in-editor dummy data. not everything is supported, yet
+1.7
+	- Update API for new data types introduced in iOS 11 & 11.2
+	- fix for an intermittent issue serializing health permissions in the editor
+	- more datetime bug fixes. you really shouldn't see any health data from 01/01/1970 anymore!
+	- fix an issue in the build post-processor
+	- better handling of workouts & metadata
+	- wrapped plugin calls in #ifdefs for cross-platform builds
+1.6
+	- added a callback for authorization
+	- added the ability to query the authorization status for a datatype (thanks, Skjalg!)
+	- reworked how the data is stored; it's no longer hard-coded to read from a file in Resources. self-contained!
+1.5a
+	- reworking datetime conversions between iOS & .net
+	- automatically add Healthkit capabilities & associated requirements to the Xcode project! Thanks to David Weatherford, among a couple others.
+1.4
+	- fixed a bug in some cases that would break timestamps on samples in certain circumstances
+	- added basic support for writing quantity, category & workout data
+1.3
+	- Update API for new data types introduced in iOS 10
+	- 2 test scenes: one ultra-simple, and one with a drop-down to read any data type
+1.2.1
+	- Backwards-compatibility fix for iOS 8
+1.2
+	- Fix how the delegates work, so multiple queries don't trample each other
+	- other minor tweaks / improvements 
+1.1
+	- Added support for realtime Pedometer data
+	- Update API for new data types introduced in iOS 9
+	- added basic support for metadata (required by some of the iOS 9 stuff)
+	- Rework HealthKitDataTypes to better support new data types as they're added, and make it support both read+write
+	- add foldout sections to the inspector to make it more manageable
+	- support for reading Characteristic & Correlation complete
+1.0
+	- initial release
