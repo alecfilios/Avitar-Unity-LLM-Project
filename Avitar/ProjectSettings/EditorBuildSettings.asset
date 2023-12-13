@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/BEHealthKit/Example/Full Test Scene.unity
+    path: Assets/Scenes/GameScene.unity
     guid: cf2be9da2fa594c5586590252c5dd629
   m_configObjects: {}
