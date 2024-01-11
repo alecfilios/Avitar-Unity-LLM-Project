@@ -20,7 +20,8 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief Identifiers for the health data sharing authorization.
 	 */
-	public enum HKAuthorizationStatus {
+	public enum HKAuthorizationStatus
+	{
 		NotDetermined,
 		SharingDenied,
 		SharingAuthorized
@@ -30,19 +31,20 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief Identifiers for the datatypes that HealthKit supports.
 	 */
-	public enum HKDataType {
+	public enum HKDataType
+	{
 		/*--------------------------------*/
 		/*   HKQuantityType Identifiers   */
 		/*--------------------------------*/
 
 		// Body Measurements
-		HKQuantityTypeIdentifierBodyMassIndex,              	// Scalar(Count),               Discrete
-		HKQuantityTypeIdentifierBodyFatPercentage,          	// Scalar(Percent, 0.0 - 1.0),  Discrete
-		HKQuantityTypeIdentifierHeight,                     	// Length,                      Discrete
-		HKQuantityTypeIdentifierBodyMass,                   	// Mass,                        Discrete
-		HKQuantityTypeIdentifierLeanBodyMass,               	// Mass,                        Discrete
-		HKQuantityTypeIdentifierWaistCircumference,         	// Length,                      Discrete    - iOS 11.0
-		HKQuantityTypeIdentifierAppleSleepingWristTemperature,	// Temperature					Discrete	- iOS 16.0
+		HKQuantityTypeIdentifierBodyMassIndex,                  // Scalar(Count),               Discrete
+		HKQuantityTypeIdentifierBodyFatPercentage,              // Scalar(Percent, 0.0 - 1.0),  Discrete
+		HKQuantityTypeIdentifierHeight,                         // Length,                      Discrete
+		HKQuantityTypeIdentifierBodyMass,                       // Mass,                        Discrete
+		HKQuantityTypeIdentifierLeanBodyMass,                   // Mass,                        Discrete
+		HKQuantityTypeIdentifierWaistCircumference,             // Length,                      Discrete    - iOS 11.0
+		HKQuantityTypeIdentifierAppleSleepingWristTemperature,  // Temperature					Discrete	- iOS 16.0
 
 		// Fitness
 		HKQuantityTypeIdentifierStepCount,                  // Scalar(Count),               Cumulative
@@ -53,33 +55,33 @@ namespace BeliefEngine.HealthKit
 		HKQuantityTypeIdentifierActiveEnergyBurned,         // Energy,                      Cumulative
 		HKQuantityTypeIdentifierFlightsClimbed,             // Scalar(Count),               Cumulative
 		HKQuantityTypeIdentifierNikeFuel,                   // Scalar(Count),               Cumulative
-		HKQuantityTypeIdentifierAppleExerciseTime,			// Time							Cumulative	- iOS 9.3
+		HKQuantityTypeIdentifierAppleExerciseTime,          // Time							Cumulative	- iOS 9.3
 		HKQuantityTypeIdentifierPushCount,                  // Scalar(Count),               Cumulative  - iOS 10.0
 		HKQuantityTypeIdentifierDistanceSwimming,           // Length,                      Cumulative  - iOS 10.0
 		HKQuantityTypeIdentifierSwimmingStrokeCount,        // Scalar(Count),               Cumulative  - iOS 10.0
 		HKQuantityTypeIdentifierVO2Max,                     // ml/(kg*min)                  Discrete    - iOS 11.0
 		HKQuantityTypeIdentifierDistanceDownhillSnowSports, // Length,                      Cumulative  - iOS 11.2
-		HKQuantityTypeIdentifierAppleStandTime,				// Time,                        Cumulative	- iOS 13
-		HKQuantityTypeIdentifierAppleMoveTime,				// Time,                        Cumulative	- iOS 14.5
-		HKQuantityTypeIdentifierAppleWalkingSteadiness,		// Scalar(Percent, 0.0 - 1.0),  Discrete	- iOS 15
-		HKQuantityTypeIdentifierRunningStrideLength,		// Length, 						Discrete	- iOS 16
-		HKQuantityTypeIdentifierRunningVerticalOscillation,	// Length, 						Discrete	- iOS 16
-		HKQuantityTypeIdentifierRunningGroundContactTime,	// Time, 						Discrete	- iOS 16
-		HKQuantityTypeIdentifierRunningPower,				// Power, 						Discrete	- iOS 16
-		HKQuantityTypeIdentifierRunningSpeed,				// m/s, 						Discrete	- iOS 16
+		HKQuantityTypeIdentifierAppleStandTime,             // Time,                        Cumulative	- iOS 13
+		HKQuantityTypeIdentifierAppleMoveTime,              // Time,                        Cumulative	- iOS 14.5
+		HKQuantityTypeIdentifierAppleWalkingSteadiness,     // Scalar(Percent, 0.0 - 1.0),  Discrete	- iOS 15
+		HKQuantityTypeIdentifierRunningStrideLength,        // Length, 						Discrete	- iOS 16
+		HKQuantityTypeIdentifierRunningVerticalOscillation, // Length, 						Discrete	- iOS 16
+		HKQuantityTypeIdentifierRunningGroundContactTime,   // Time, 						Discrete	- iOS 16
+		HKQuantityTypeIdentifierRunningPower,               // Power, 						Discrete	- iOS 16
+		HKQuantityTypeIdentifierRunningSpeed,               // m/s, 						Discrete	- iOS 16
 
-	
+
 		// Vitals
 		HKQuantityTypeIdentifierHeartRate,                  // Scalar(Count)ime,            Discrete
 		HKQuantityTypeIdentifierBodyTemperature,            // Temperature,                 Discrete
-		HKQuantityTypeIdentifierBasalBodyTemperature,		// Basal Body Temperature,		Discrete	- iOS 9.0
+		HKQuantityTypeIdentifierBasalBodyTemperature,       // Basal Body Temperature,		Discrete	- iOS 9.0
 		HKQuantityTypeIdentifierBloodPressureSystolic,      // Pressure,                    Discrete
 		HKQuantityTypeIdentifierBloodPressureDiastolic,     // Pressure,                    Discrete
 		HKQuantityTypeIdentifierRespiratoryRate,            // Scalar(Count)/Time,          Discrete
 		HKQuantityTypeIdentifierRestingHeartRate,           // Scalar(Count)/Time,          Discrete    - iOS 11.0
 		HKQuantityTypeIdentifierWalkingHeartRateAverage,    // Scalar(Count)/Time,          Discrete    - iOS 11.0
 		HKQuantityTypeIdentifierHeartRateVariabilitySDNN,   // Time (ms),                   Discrete    - iOS 11.0
-		HKQuantityTypeIdentifierHeartRateRecoveryOneMinute,	// Count/Time					Discrete	- iOS 16.0
+		HKQuantityTypeIdentifierHeartRateRecoveryOneMinute, // Count/Time					Discrete	- iOS 16.0
 
 		// Results
 		HKQuantityTypeIdentifierOxygenSaturation,           // Scalar (Percent, 0.0 - 1.0,  Discrete
@@ -93,9 +95,9 @@ namespace BeliefEngine.HealthKit
 		HKQuantityTypeIdentifierForcedVitalCapacity,        // Volume,                      Discrete
 		HKQuantityTypeIdentifierForcedExpiratoryVolume1,    // Volume,                      Discrete
 		HKQuantityTypeIdentifierPeakExpiratoryFlowRate,     // Volume/Time,                 Discrete
-		HKQuantityTypeIdentifierEnvironmentalAudioExposure,	// Pressure,                    DiscreteEquivalentContinuousLevel - iOS 13
-		HKQuantityTypeIdentifierHeadphoneAudioExposure,		// Pressure,                    DiscreteEquivalentContinuousLevel - iOS 13
-		HKQuantityTypeIdentifierNumberOfAlcoholicBeverages,	// Scalar(Count),               Cumulative
+		HKQuantityTypeIdentifierEnvironmentalAudioExposure, // Pressure,                    DiscreteEquivalentContinuousLevel - iOS 13
+		HKQuantityTypeIdentifierHeadphoneAudioExposure,     // Pressure,                    DiscreteEquivalentContinuousLevel - iOS 13
+		HKQuantityTypeIdentifierNumberOfAlcoholicBeverages, // Scalar(Count),               Cumulative
 
 		// Nutrition
 		HKQuantityTypeIdentifierDietaryFatTotal,            // Mass,   						Cumulative
@@ -149,26 +151,26 @@ namespace BeliefEngine.HealthKit
 		HKQuantityTypeIdentifierStairDescentSpeed,              // Distance/Time,  - iOS 14
 
 		HKQuantityTypeIdentifierUVExposure,                 // Count,				Discrete	- iOS 9.0
-		HKQuantityTypeIdentifierAtrialFibrillationBurden,	// Percent,				Discrete	- iOS 16.0
-		HKQuantityTypeIdentifierUnderwaterDepth,			// Length				Discrete	- iOS 16.0
-		HKQuantityTypeIdentifierWaterTemperature,			// Temperature			Discrete	- iOS 16.0
+		HKQuantityTypeIdentifierAtrialFibrillationBurden,   // Percent,				Discrete	- iOS 16.0
+		HKQuantityTypeIdentifierUnderwaterDepth,            // Length				Discrete	- iOS 16.0
+		HKQuantityTypeIdentifierWaterTemperature,           // Temperature			Discrete	- iOS 16.0
 
 
 		/*--------------------------------*/
 		/*   HKCategoryType Identifiers   */
 		/*--------------------------------*/
 
-		HKCategoryTypeIdentifierSleepAnalysis,  			// HKCategoryValueSleepAnalysis
-		HKCategoryTypeIdentifierAppleStandHour, 			// HKCategoryValueAppleStandHour			- iOS 9.0
-		HKCategoryTypeIdentifierCervicalMucusQuality,		// HKCategoryValueCervicalMucusQuality		- iOS 9.0
-		HKCategoryTypeIdentifierOvulationTestResult,		// HKCategoryValueOvulationTestResult		- iOS 9.0
-		HKCategoryTypeIdentifierMenstrualFlow,				// HKCategoryValueMenstrualFlow				- iOS 9.0
-		HKCategoryTypeIdentifierIntermenstrualBleeding,		// (Spotting) HKCategoryValue				- iOS 9.0
-		HKCategoryTypeIdentifierPersistentIntermenstrualBleeding,	// HKCategoryValue					- iOS 16.0
-		HKCategoryTypeIdentifierProlongedMenstrualPeriods,			// HKCategoryValue					- iOS 16
-		HKCategoryTypeIdentifierIrregularMenstrualCycles,			// HKCategoryValue					- iOS 16
-		HKCategoryTypeIdentifierInfrequentMenstrualCycles,			// HKCategoryValue					- iOS 16
-		HKCategoryTypeIdentifierSexualActivity,				// HKCategoryValue							- iOS 9.0
+		HKCategoryTypeIdentifierSleepAnalysis,              // HKCategoryValueSleepAnalysis
+		HKCategoryTypeIdentifierAppleStandHour,             // HKCategoryValueAppleStandHour			- iOS 9.0
+		HKCategoryTypeIdentifierCervicalMucusQuality,       // HKCategoryValueCervicalMucusQuality		- iOS 9.0
+		HKCategoryTypeIdentifierOvulationTestResult,        // HKCategoryValueOvulationTestResult		- iOS 9.0
+		HKCategoryTypeIdentifierMenstrualFlow,              // HKCategoryValueMenstrualFlow				- iOS 9.0
+		HKCategoryTypeIdentifierIntermenstrualBleeding,     // (Spotting) HKCategoryValue				- iOS 9.0
+		HKCategoryTypeIdentifierPersistentIntermenstrualBleeding,   // HKCategoryValue					- iOS 16.0
+		HKCategoryTypeIdentifierProlongedMenstrualPeriods,          // HKCategoryValue					- iOS 16
+		HKCategoryTypeIdentifierIrregularMenstrualCycles,           // HKCategoryValue					- iOS 16
+		HKCategoryTypeIdentifierInfrequentMenstrualCycles,          // HKCategoryValue					- iOS 16
+		HKCategoryTypeIdentifierSexualActivity,             // HKCategoryValue							- iOS 9.0
 		HKCategoryTypeIdentifierMindfulSession,             // HKCategoryValue                          - iOS 10.0
 		HKCategoryTypeIdentifierHighHeartRateEvent,         // HKCategoryValue                          - iOS 12.2
 		HKCategoryTypeIdentifierLowHeartRateEvent,          // HKCategoryValue                          - iOS 12.2
@@ -179,13 +181,13 @@ namespace BeliefEngine.HealthKit
 		HKCategoryTypeIdentifierLactation,                  // HKCategoryValue,							- iOS 14.3
 		HKCategoryTypeIdentifierContraceptive,              // HKCategoryValueContraceptive,			- iOS 14.3
 		HKCategoryTypeIdentifierEnvironmentalAudioExposureEvent,// HKCategoryValueEnvironmentalAudioExposureEvent	- iOS 14.0
-		HKCategoryTypeIdentifierHeadphoneAudioExposureEvent,	// HKCategoryValueHeadphoneAudioExposureEvent		- iOS 14.2
-		HKCategoryTypeIdentifierHandwashingEvent,				// HKCategoryValue									- iOS 14.0
-		HKCategoryTypeIdentifierLowCardioFitnessEvent,			//													- iOS 14.3
-		HKCategoryTypeIdentifierAppleWalkingSteadinessEvent,	// HKCategoryValueAppleWalkingSteadinessEvent 		- iOS 15
+		HKCategoryTypeIdentifierHeadphoneAudioExposureEvent,    // HKCategoryValueHeadphoneAudioExposureEvent		- iOS 14.2
+		HKCategoryTypeIdentifierHandwashingEvent,               // HKCategoryValue									- iOS 14.0
+		HKCategoryTypeIdentifierLowCardioFitnessEvent,          //													- iOS 14.3
+		HKCategoryTypeIdentifierAppleWalkingSteadinessEvent,    // HKCategoryValueAppleWalkingSteadinessEvent 		- iOS 15
 
 		// Symptoms
-		HKCategoryTypeIdentifierAbdominalCramps,		// HKCategoryValueSeverity						- iOS 13.6
+		HKCategoryTypeIdentifierAbdominalCramps,        // HKCategoryValueSeverity						- iOS 13.6
 		HKCategoryTypeIdentifierAcne,                   // HKCategoryValueSeverity						- iOS 13.6
 		HKCategoryTypeIdentifierAppetiteChanges,        // HKCategoryValueAppetiteChanges				- iOS 13.6
 		HKCategoryTypeIdentifierBladderIncontinence,    // HKCategoryValueSeverity						- iOS 14.0
@@ -230,12 +232,12 @@ namespace BeliefEngine.HealthKit
 		/*   HKCharacteristicType Identifiers   */
 		/*--------------------------------------*/
 
-		HKCharacteristicTypeIdentifierBiologicalSex,		// HKCharacteristicBiologicalSex
-		HKCharacteristicTypeIdentifierBloodType,			// HKCharacteristicBloodType
-		HKCharacteristicTypeIdentifierDateOfBirth,			// NSDate
-		HKCharacteristicTypeIdentifierFitzpatrickSkinType,	// FitzpatrickSkinType					- iOS 9.0
+		HKCharacteristicTypeIdentifierBiologicalSex,        // HKCharacteristicBiologicalSex
+		HKCharacteristicTypeIdentifierBloodType,            // HKCharacteristicBloodType
+		HKCharacteristicTypeIdentifierDateOfBirth,          // NSDate
+		HKCharacteristicTypeIdentifierFitzpatrickSkinType,  // FitzpatrickSkinType					- iOS 9.0
 		HKCharacteristicTypeIdentifierWheelchairUse,        // WheelchairUseObject                  - iOS 10.0
-		HKCharacteristicTypeIdentifierActivityMoveMode,		// HKActivityMoveModeObject				- iOS 14
+		HKCharacteristicTypeIdentifierActivityMoveMode,     // HKActivityMoveModeObject				- iOS 14
 
 		/*-----------------------------------*/
 		/*   HKCorrelationType Identifiers   */
@@ -249,7 +251,7 @@ namespace BeliefEngine.HealthKit
 		/*--------------------------------*/
 
 		HKDocumentTypeIdentifierCDA,                        //  - iOS 10.0
-	
+
 		/*------------------------------*/
 		/*   HKWorkoutType Identifier   */
 		/*------------------------------*/
@@ -260,14 +262,14 @@ namespace BeliefEngine.HealthKit
 		/*   HKSeriesSample Identifiers   */
 		/*--------------------------------*/
 
-		HKWorkoutRouteTypeIdentifier,			// - iOS 11
-		HKDataTypeIdentifierHeartbeatSeries,	// - iOS 13
+		HKWorkoutRouteTypeIdentifier,           // - iOS 11
+		HKDataTypeIdentifierHeartbeatSeries,    // - iOS 13
 
 		/*-----------------------------------*/
 		/* HKVisionPrescription Identifier   */
 		/*-----------------------------------*/
 
-		HKVisionPrescriptionTypeIdentifier,		// - iOS 16
+		HKVisionPrescriptionTypeIdentifier,     // - iOS 16
 
 		NUM_TYPES
 	};
@@ -276,7 +278,8 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief Identifiers for the types of workouts that HealthKit supports.
 	 */
-	public enum WorkoutActivityType {
+	public enum WorkoutActivityType
+	{
 		AmericanFootball = 1,
 		Archery,
 		AustralianFootball,
@@ -368,41 +371,45 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief Identifiers for sleep analysis data. Possible values are "InBed" (0), "Asleep" (1) and "Awake" (2).
 	 */
-	public enum SleepAnalysis {
-	   InBed = 0,
-	   Asleep,
-	   Awake,
-	   AsleepCore,
-	   AsleepDeep,
-	   AsleepREM
+	public enum SleepAnalysis
+	{
+		InBed = 0,
+		Asleep,
+		Awake,
+		AsleepCore,
+		AsleepDeep,
+		AsleepREM
 	}
 
 	/*! @enum AppleStandHour
 		@ingroup Enumerations
 		@brief Identifiers for whether the user has stood for at least one minute during the sample.
 	 */
-	public enum AppleStandHour {
-	   Stood = 0,
-	   Idle
+	public enum AppleStandHour
+	{
+		Stood = 0,
+		Idle
 	}
 
 	/*! @enum CervicalMucusQuality
 		@ingroup Enumerations
 		@brief Identifiers for representing the quality of the user’s cervical mucus.
 	 */
-	public enum CervicalMucusQuality {
-	   Dry = 1,
-	   Sticky,
-	   Creamy,
-	   Watery,
-	   EggWhite
+	public enum CervicalMucusQuality
+	{
+		Dry = 1,
+		Sticky,
+		Creamy,
+		Watery,
+		EggWhite
 	}
 
 	/*! @enum OvulationTestResult
 		@ingroup Enumerations
 		@brief Identifiers for recording the result of an ovulation home test.
 	 */
-	public enum OvulationTestResult {
+	public enum OvulationTestResult
+	{
 		Negative = 1,
 		//Positive, -- DEPRECATED
 		LuteinizingHormoneSurge,
@@ -414,9 +421,10 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief Identifiers for recording the result of a pregnancy test.
 	 */
-	public enum PregnancyTestResult {
+	public enum PregnancyTestResult
+	{
 		Negative = 1,
-		Positive, 
+		Positive,
 		Indeterminate
 	}
 
@@ -425,9 +433,10 @@ namespace BeliefEngine.HealthKit
 		@brief Identifiers for recording the result of a home ovulation confirmation test that use surges in hormone levels to
                confirm if ovulation has occurred.
 	 */
-	public enum ProgresteroneTestResult {
+	public enum ProgresteroneTestResult
+	{
 		Negative = 1,
-		Positive, 
+		Positive,
 		Indeterminate
 	}
 
@@ -435,48 +444,52 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief Identifiers for representing menstrual cycles.
 	 */
-	public enum MenstrualFlow {
-	   Unspecified = 0,
-	   Light,
-	   Medium,
-	   Heavy
+	public enum MenstrualFlow
+	{
+		Unspecified = 0,
+		Light,
+		Medium,
+		Heavy
 	}
 
 	/*! @enum Contraceptive
 		@ingroup Enumerations
 		@brief Identifiers for representing types of contraceptives.
 	 */
-	public enum Contraceptive {
-	   Unspecified = 1,
-	   Implant,
-	   Injection,
-	   IntrauterineDevice,
-	   IntravaginalRing,
-	   Oral,
-	   Patch
+	public enum Contraceptive
+	{
+		Unspecified = 1,
+		Implant,
+		Injection,
+		IntrauterineDevice,
+		IntravaginalRing,
+		Oral,
+		Patch
 	}
 
 	/*! @enum Severity
 		@ingroup Enumerations
 		@brief Identifiers for representing the severity of a symptom.
 	 */
-	public enum Severity {
-	   Unspecified = 0,
-	   NotPresent,
-	   Mild,
-	   Moderate,
-	   Severe
+	public enum Severity
+	{
+		Unspecified = 0,
+		NotPresent,
+		Mild,
+		Moderate,
+		Severe
 	}
 
 	/*! @enum AppetiteChanges
 		@ingroup Enumerations
 		@brief Identifiers for representing the direction of appetite changes.
 	 */
-	public enum AppetiteChanges {
-	   Unspecified = 0,
-	   NoChange,
-	   Decreased,
-	   Increased
+	public enum AppetiteChanges
+	{
+		Unspecified = 0,
+		NoChange,
+		Decreased,
+		Increased
 	}
 
 	// --------------------------------------------
@@ -485,7 +498,8 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief possible values for Biological Sex
 	 */
-	public enum BiologicalSex {
+	public enum BiologicalSex
+	{
 		NotSet = 0,
 		Female,
 		Male,
@@ -496,7 +510,8 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief possible values for BloodType
 	 */
-	public enum BloodType {
+	public enum BloodType
+	{
 		NotSet = 0,
 		APositive,
 		ANegative,
@@ -512,7 +527,8 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief possible values for Fitzpatrick Skin Type
 	 */
-	public enum FitzpatrickSkinType {
+	public enum FitzpatrickSkinType
+	{
 		FitzpatrickSkinTypeNotSet = 0,
 		FitzpatrickSkinTypeI,
 		FitzpatrickSkinTypeII,
@@ -526,13 +542,14 @@ namespace BeliefEngine.HealthKit
 		@ingroup Enumerations
 		@brief possible values for Wheelchair Use
 	 */
-	public enum WheelchairUse {
+	public enum WheelchairUse
+	{
 		WheelchairUseNotSet = 0,
 		WheelchairUseNo,
 		WheelchairUseYes
 	}
 
-		// --------------------------------------------
+	// --------------------------------------------
 
 	/*! @enum     StatisticsOptions
 		@ingroup  Enumerations
@@ -557,7 +574,7 @@ namespace BeliefEngine.HealthKit
 	public enum HKClinicalType
 	{
 		HKClinicalTypeIdentifierAllergyRecord,
-		HKClinicalTypeIdentifierConditionRecord, 
+		HKClinicalTypeIdentifierConditionRecord,
 		HKClinicalTypeIdentifierImmunizationRecord,
 		HKClinicalTypeIdentifierLabResultRecord,
 		HKClinicalTypeIdentifierMedicationRecord,
@@ -570,18 +587,19 @@ namespace BeliefEngine.HealthKit
 	public enum HKUpdateFrequency
 	{
 		HKUpdateFrequencyImmediate = 1,
-    	HKUpdateFrequencyHourly,
-    	HKUpdateFrequencyDaily,
-    	HKUpdateFrequencyWeekly
+		HKUpdateFrequencyHourly,
+		HKUpdateFrequencyDaily,
+		HKUpdateFrequencyWeekly
 	}
 
 	// --------------------------------------------
 
 
-		/*!	@brief Storage class for HealthKit data types. Used to create the editor UI & authorization.
-			*/
+	/*!	@brief Storage class for HealthKit data types. Used to create the editor UI & authorization.
+		*/
 	[System.Serializable]
-	public class HKNameValuePair : System.Object {
+	public class HKNameValuePair : System.Object
+	{
 		public string name;   /*!< human-readable name of the HKDataType */
 		public bool read;     /*!< read permission? */
 		public bool write;    /*!< write permission? */
@@ -589,7 +607,8 @@ namespace BeliefEngine.HealthKit
 
 		/*!	@brief default constructor
 		 */
-		public HKNameValuePair(string n, bool w) {
+		public HKNameValuePair(string n, bool w)
+		{
 			this.name = n;
 			this.read = false;
 			this.write = false;
@@ -610,7 +629,7 @@ namespace BeliefEngine.HealthKit
 
 		/*! @brief Text to present to the user when iOS requests access to read health data.  */
 		public string healthShareUsageDescription = "We require access to health data for testing.";
-	
+
 		/*! @brief Text to present to the user when iOS requests access to write health data. */
 		public string healthUpdateUsageDescription = "We update health data for testing.";
 
@@ -618,35 +637,41 @@ namespace BeliefEngine.HealthKit
 		public string clinicalUsageDescription = "We only request clinical data that we need.";
 
 		/*! @brief dictionary of identifier/read+write values */
-		public Dictionary<string, HKNameValuePair> data; 
+		public Dictionary<string, HKNameValuePair> data;
 
-		void Awake() {
+		void Awake()
+		{
 			// this.data.Load();
 		}
 
-		void OnEnable() {
+		void OnEnable()
+		{
 			Load();
 		}
 
-		void OnDisable() {
+		void OnDisable()
+		{
 			// Save();
 		}
 
-		private void InitializeEntry<T>(T type, string typeName, bool writable = true) where T: Enum {
+		private void InitializeEntry<T>(T type, string typeName, bool writable = true) where T : Enum
+		{
 			string key = GetIdentifier(type);
-			if (!data.ContainsKey(key)) {
+			if (!data.ContainsKey(key))
+			{
 				data[key] = new HKNameValuePair(typeName, writable);
 			}
 		}
 
 		/*! @brief Convenience method to get a HKDataType as a string value
 		 */
-		public static string GetIdentifier<T>(T type) where T: Enum {
+		public static string GetIdentifier<T>(T type) where T : Enum
+		{
 			return Enum.GetName(typeof(T), type);
 		}
 
-		private void Initialize() {
-			Debug.Log("[initializing]");
+		private void Initialize()
+		{
 			// Body Measurements
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierBodyMassIndex, "Body Mass Index");
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierBodyFatPercentage, "Body Fat Percentage");
@@ -686,7 +711,7 @@ namespace BeliefEngine.HealthKit
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierRunningGroundContactTime, "Running Ground Contact Time");
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierRunningPower, "Running Power");
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierRunningSpeed, "Running Speed");
-		
+
 			// Vitals
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierHeartRate, "Heart Rate");
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierBodyTemperature, "Body Temperature");
@@ -761,7 +786,7 @@ namespace BeliefEngine.HealthKit
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierAtrialFibrillationBurden, "Atrial Fibrillation Burden");
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierUnderwaterDepth, "Underwater Depth");
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierWaterTemperature, "Water Temperature");
-			
+
 			// iOS 14
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierWalkingSpeed, "Walking Speed");
 			InitializeEntry(HKDataType.HKQuantityTypeIdentifierWalkingDoubleSupportPercentage, "Walking Double Support Percentage");
@@ -895,24 +920,29 @@ namespace BeliefEngine.HealthKit
 
 		/*! @brief Save the authorization preferences.
 		 */
-		public string Save() {
+		public string Save()
+		{
 			string newSaveData = this.saveData;
 
-			#if UNITY_EDITOR
+#if UNITY_EDITOR
 			// Debug.Log("[EDITOR] save");
-			if (this.data != null) {
+			if (this.data != null)
+			{
 				// Debug.Log("-- have data to save");
-				using (MemoryStream stream = new MemoryStream()) {
+				using (MemoryStream stream = new MemoryStream())
+				{
 					BinaryFormatter bin = new BinaryFormatter();
 					// Debug.LogFormat("bin.Serialize({0}, {1})", stream, this.data);
 					bin.Serialize(stream, this.data);
 					string text = Convert.ToBase64String(stream.ToArray());
 					newSaveData = text;
 				}
-			} else {
+			}
+			else
+			{
 				Debug.Log("--- NO data to save");
 			}
-			#endif
+#endif
 
 			return newSaveData;
 		}
@@ -920,9 +950,11 @@ namespace BeliefEngine.HealthKit
 		/*! @brief Load the authorization preferences from a supplied file.
 			@param saveAsset the save data asset
 		 */
-		public void Load(TextAsset saveAsset) {
+		public void Load(TextAsset saveAsset)
+		{
 			byte[] bytes = Convert.FromBase64String(saveAsset.text);
-			using (MemoryStream stream = new MemoryStream(bytes)) {
+			using (MemoryStream stream = new MemoryStream(bytes))
+			{
 				BinaryFormatter bin = new BinaryFormatter();
 				this.data = (Dictionary<string, HKNameValuePair>)bin.Deserialize(stream);
 			}
@@ -930,14 +962,19 @@ namespace BeliefEngine.HealthKit
 
 		/*! @brief Load the authorization preferences.
 		 */
-		public void Load() {
-			if (this.saveData != null && this.saveData.Length > 0) {
+		public void Load()
+		{
+			if (this.saveData != null && this.saveData.Length > 0)
+			{
 				byte[] bytes = Convert.FromBase64String(this.saveData);
-				using (MemoryStream stream = new MemoryStream(bytes)) {
+				using (MemoryStream stream = new MemoryStream(bytes))
+				{
 					BinaryFormatter bin = new BinaryFormatter();
 					this.data = (Dictionary<string, HKNameValuePair>)bin.Deserialize(stream);
 				}
-			} else {
+			}
+			else
+			{
 				// something went wrong
 				this.data = new Dictionary<string, HKNameValuePair>();
 			}
@@ -948,10 +985,13 @@ namespace BeliefEngine.HealthKit
 		// -----------------------------
 
 		/*! @brief Create a comma-separated list of HealthKit datatypes to authorize */
-		public string Transmit() {
+		public string Transmit()
+		{
 			List<string> readList = new List<string>();
-			foreach (KeyValuePair<string, HKNameValuePair> pair in this.data) {
-				if (pair.Value.read) {
+			foreach (KeyValuePair<string, HKNameValuePair> pair in this.data)
+			{
+				if (pair.Value.read)
+				{
 					var key = pair.Key;
 					if (key == "HKCategoryTypeIdentifierEnvironmentalAudioExposureEvent") key = "HKCategoryTypeIdentifierAudioExposureEvent"; // overrides deprecated name
 					readList.Add(key);
@@ -959,8 +999,10 @@ namespace BeliefEngine.HealthKit
 			}
 
 			List<string> writeList = new List<string>();
-			foreach (KeyValuePair<string, HKNameValuePair> pair in this.data) {
-				if (pair.Value.write) {
+			foreach (KeyValuePair<string, HKNameValuePair> pair in this.data)
+			{
+				if (pair.Value.write)
+				{
 					var key = pair.Key;
 					if (key == "HKCategoryTypeIdentifierEnvironmentalAudioExposureEvent") key = "HKCategoryTypeIdentifierAudioExposureEvent"; // overrides deprecated name
 					writeList.Add(key);
@@ -973,22 +1015,27 @@ namespace BeliefEngine.HealthKit
 		/*! @brief Returns true if there are data types we want to read, and need to request permission to read health data. 
 		           Always required.
 		 */
-		public bool AskForSharePermission() {
+		public bool AskForSharePermission()
+		{
 			return true;
 		}
 
 		/*! @brief Returns true if there are data types we want to write, and need to request permission to write health data. */
-		public bool AskForUpdatePermission() {
-			foreach (KeyValuePair<string, HKNameValuePair> pair in this.data) {
+		public bool AskForUpdatePermission()
+		{
+			foreach (KeyValuePair<string, HKNameValuePair> pair in this.data)
+			{
 				if (pair.Value.write) return true;
 			}
 			return false;
 		}
 
 		/*! @brief Returns true if there are clinical data types we want to read, and need to request permission to read health data. */
-		public bool AskForClinicalPermission() {
+		public bool AskForClinicalPermission()
+		{
 			Array values = Enum.GetValues(typeof(HKClinicalType));
-			for (int i = 0; i < (int)HKClinicalType.NUM_TYPES; i++) {
+			for (int i = 0; i < (int)HKClinicalType.NUM_TYPES; i++)
+			{
 				HKClinicalType t = (HKClinicalType)i;
 				if (this.data[t.ToString()].read) return true;
 			}

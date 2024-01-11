@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class OptionsPanelBase : MonoBehaviour
 {
-    public abstract void FillTexts();
+    public abstract void Init();
 }

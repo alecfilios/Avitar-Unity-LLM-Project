@@ -15,11 +15,18 @@ public class NutritionPanel : OptionsPanelBase
     [SerializeField]
     TMP_Text DietaryWaterText;
 
-    public override void FillTexts()
+    public override void Init()
     {
-        DietaryFatTotalText.text = "Dietary Fat Total:" + UserData.Instance.QuantityTypeValues[HealthKitDataTypes.GetIdentifier(HKDataType.HKQuantityTypeIdentifierDietaryFatTotal)];
-        DietaryCarbohydratesText.text = "Dietary Carbohydrates:" + UserData.Instance.QuantityTypeValues[HealthKitDataTypes.GetIdentifier(HKDataType.HKQuantityTypeIdentifierDietaryCarbohydrates)];
-        DietaryProteinText.text = "Dietary Protein:" + UserData.Instance.QuantityTypeValues[HealthKitDataTypes.GetIdentifier(HKDataType.HKQuantityTypeIdentifierDietaryProtein)];
-        DietaryWaterText.text = "Dietary Water:" + UserData.Instance.QuantityTypeValues[HealthKitDataTypes.GetIdentifier(HKDataType.HKQuantityTypeIdentifierDietaryWater)];
+        double fat = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryFatTotal);
+        DietaryFatTotalText.text = "Dietary Fat Total:" + fat;
+
+        double carbohydrates = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryCarbohydrates);
+        DietaryCarbohydratesText.text = "Dietary Carbohydrates:" + carbohydrates;
+
+        double protein = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryProtein);
+        DietaryProteinText.text = "Dietary Protein:" + protein;
+
+        double water = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryWater);
+        DietaryWaterText.text = "Dietary Water:" + water;
     }
 }

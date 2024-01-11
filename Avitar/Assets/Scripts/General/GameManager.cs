@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     UIManager _uIManager;
 
+    [SerializeField]
+    Avatar avatar;
+
     private void Awake()
     {
         UserData.Instance.InitializeDB();
@@ -29,7 +32,8 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+        avatar.SetColors();
 
-        _uIManager.InitializeTexts();
+        _uIManager.InitPanels();
     }
 }

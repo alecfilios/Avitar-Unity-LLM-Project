@@ -22,7 +22,7 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     RadialMenuEntryData _data;
 
-
+    int targetIndex;
 
 
     private void Start()

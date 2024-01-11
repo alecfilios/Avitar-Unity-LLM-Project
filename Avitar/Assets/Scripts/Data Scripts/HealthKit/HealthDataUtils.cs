@@ -79,5 +79,28 @@ public static class HealthDataUtils
         return sum;
     }
 
-    // Add more utility methods as needed
+    public static double CalculateAverageForQuantityType(HKDataType quantityType)
+    {
+        return CalculateSumForQuantityType(quantityType) / GetQuantitySamplesByType(quantityType).Count; ;
+    }
+
+    public static double GetMostRecentQuantityValue(HKDataType quantityType)
+    {
+        return GetQuantitySamplesByType(quantityType)[GetQuantitySamplesByType(quantityType).Count - 1].quantity.doubleValue;
+    }
+
+    public static string FormatDate(DateTimeOffset date)
+    {
+        TimeSpan timeAgo = DateTime.UtcNow - date.UtcDateTime;
+
+        if (timeAgo.TotalDays < 1)
+        {
+            return date.ToString("HH:mm");
+        }
+        else
+        {
+            return date.ToString("yyyy-MM-dd HH:mm");
+        }
+    }
+
 }

@@ -11,6 +11,7 @@ public class RadialMenuEntryData
     public string title;
     public Texture icon;
     public GameObject panelPrefab;
+    public Island island;
 }
 
 public class RadialMenu : MonoBehaviour
@@ -29,9 +30,24 @@ public class RadialMenu : MonoBehaviour
     [SerializeField]
     float _radius = 300f;
 
+    [SerializeField]
+    Button MenuButton;
+
     private void Start()
     {
         _entries = new List<RadialMenuEntry>();
+    }
+
+    private void Update()
+    {
+        if (Camera.main.GetComponent<CameraController>().isMoving)
+        {
+            MenuButton.interactable = false;
+        }
+        else
+        {
+            MenuButton.interactable = true;
+        }
     }
 
     void AddEntry(RadialMenuEntryData entryData, RadialMenuEntry.RadialMenuEntryDelegate callback)
@@ -54,27 +70,36 @@ public class RadialMenu : MonoBehaviour
         Rearrange();
     }
 
+
+
     void Close()
     {
         for (int i = 0; i < _menuEntries.Count; i++)
         {
-            RectTransform rect = _entries[i].GetComponent<RectTransform>();
-            GameObject entry = _entries[i].gameObject;
-            rect.localScale = Vector3.one;
-            rect.DOScale(Vector3.zero, .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i);
-            rect.DOAnchorPos(Vector3.zero, .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i).onComplete =
-                delegate ()
-                {
-                    Destroy(entry);
-                };
+            RadialMenuEntry entry = _entries[i];
+            RectTransform rect = entry?.GetComponent<RectTransform>();
+            GameObject entryObject = entry?.gameObject;
 
- 
+            if (rect != null)
+            {
+                rect.localScale = Vector3.one;
+                rect.DOScale(Vector3.zero, .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i);
+                rect.DOAnchorPos(Vector3.zero, .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i).onComplete =
+                    delegate ()
+                    {
+                        if (entryObject != null)
+                        {
+                            Destroy(entryObject); // Destroy the entire GameObject
+                        }
+                    };
+            }
         }
         _entries.Clear();
 
         // Disable all panels when closing the menu
         DisableAllPanels();
     }
+
 
     // Helper method to disable all panels
     void DisableAllPanels()
@@ -88,11 +113,9 @@ public class RadialMenu : MonoBehaviour
         }
     }
 
-
-
     public void Toggle()
     {
-        if(_entries.Count == 0)
+        if (_entries.Count == 0)
         {
             Open();
         }
@@ -102,38 +125,73 @@ public class RadialMenu : MonoBehaviour
         }
     }
 
-
     void Rearrange()
     {
         float radiansOfSeperation = (Mathf.PI * 2) / _entries.Count;
-        for(int i=0; i<_entries.Count; i++)
+
+        for (int i = 0; i < _entries.Count; i++)
         {
             float x = Mathf.Sin(radiansOfSeperation * i) * _radius;
             float y = Mathf.Cos(radiansOfSeperation * i) * _radius;
 
-            //_entries[i].GetComponent<RectTransform>().anchoredPosition = new Vector3(x, y, 0);
-            RectTransform rect = _entries[i].GetComponent<RectTransform>();
+            RectTransform rect = _entries[i]?.GetComponent<RectTransform>(); // Check if _entries[i] is not null
 
-            rect.localScale = Vector3.zero;
-            rect.DOScale(Vector3.one, .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i);
-            _entries[i].GetComponent<RectTransform>().DOAnchorPos(new Vector3(x, y, 0), .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i);
-
+            if (rect != null)
+            {
+                rect.localScale = Vector3.zero;
+                rect.DOScale(Vector3.one, .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i);
+                _entries[i]?.GetComponent<RectTransform>().DOAnchorPos(new Vector3(x, y, 0), .3f).SetEase(Ease.OutQuad).SetDelay(.05f * i);
+            }
         }
     }
 
     private void SetUI(RadialMenuEntry entry)
     {
-        _targetIcon.texture = entry.GetIcon();
+        if (entry == null)
+        {
+            Debug.LogError("Entry is null");
+            return;
+        }
+
+        var icon = entry.GetIcon();
+        if (icon == null)
+        {
+            Debug.LogError("Icon is null");
+            return;
+        }
+
+        _targetIcon.texture = icon;
 
         // Disable all panels when a new entry is selected
         DisableAllPanels();
 
-        // Enable the panel if it exists in the data
-        if (entry.GetData().panelPrefab != null)
+        var data = entry.GetData();
+        if (data == null)
         {
-            entry.GetData().panelPrefab.SetActive(true);
+            Debug.LogError("Data is null");
+            return;
+        }
+
+        if (data.island == null)
+        {
+            Debug.LogError("Island is null");
+            return;
+        }
+
+        Camera.main.GetComponent<CameraController>().MoveToTargetByLocation(data.island);
+
+        // Enable the panel if it exists in the data
+        if (data.panelPrefab != null)
+        {
+            data.panelPrefab.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Panel prefab is null");
         }
 
         Close();
     }
+
+
 }

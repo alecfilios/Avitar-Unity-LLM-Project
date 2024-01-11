@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MentalPanel : OptionsPanelBase
 {
-    public override void FillTexts()
+    public override void Init()
     {
         throw new System.NotImplementedException();
     }

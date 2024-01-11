@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BeliefEngine.HealthKit;
@@ -12,11 +13,28 @@ public class ActivityPanel : OptionsPanelBase
     [SerializeField]
     TMP_Text DistanceWalkingRunningText;
 
-    public override void FillTexts()
+
+
+    private void OnEnable()
+    {
+
+    }
+    private void OnDisable()
+    {
+
+    }
+    public override void Init()
     {
         double steps = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierStepCount);
-        StepCountText.text = "Steps Count: " + steps;
+        StepCountText.text = FormatQuantity(steps, "");
+
         double distanceWalkingRunning = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDistanceWalkingRunning);
-        DistanceWalkingRunningText.text = "Distance Walking Running: " + distanceWalkingRunning;
+        DistanceWalkingRunningText.text = FormatQuantity(distanceWalkingRunning, "km");
+    }
+
+    private string FormatQuantity(double value, string unit)
+    {
+        // Round the value to 2 decimal places and append the unit
+        return $"{Math.Round(value, 1)} {unit}";
     }
 }
