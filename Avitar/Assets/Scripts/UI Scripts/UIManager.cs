@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using BeliefEngine.HealthKit;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
@@ -24,6 +26,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     Island HomeIsland;
 
+    [SerializeField]
+    GameObject HomePanel;
+
     [Header("Info")]
     [SerializeField]
     GameObject InfoPanel;
@@ -33,6 +38,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     TMP_Text InfoDescription;
+
+
+
 
     private void Awake()
     {
@@ -47,6 +55,7 @@ public class UIManager : MonoBehaviour
         GameManager.CallLoadDataFromHealthKitAsync();
         IntroPanel.SetActive(false);
         Camera.main.GetComponent<CameraController>().MoveToTargetByLocation(HomeIsland);
+        HomePanel.SetActive(true);
         RadialMenu.SetActive(true);
 
     }
@@ -72,4 +81,5 @@ public class UIManager : MonoBehaviour
             panel.Init();
         }
     }
+
 }

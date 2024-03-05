@@ -64,7 +64,6 @@ namespace BeliefEngine.HealthKit
                     HandleReadingError(e);
                 }
             }
-
         }
 
         private IEnumerator ReadDataAsync()

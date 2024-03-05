@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using BeliefEngine.HealthKit;
 using TMPro;
 using UnityEngine;
@@ -18,15 +17,21 @@ public class NutritionPanel : OptionsPanelBase
     public override void Init()
     {
         double fat = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryFatTotal);
-        DietaryFatTotalText.text = "Dietary Fat Total:" + fat;
+        DietaryFatTotalText.text = FormatQuantity(fat, "g", 1);
 
         double carbohydrates = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryCarbohydrates);
-        DietaryCarbohydratesText.text = "Dietary Carbohydrates:" + carbohydrates;
+        DietaryCarbohydratesText.text = FormatQuantity(carbohydrates, "g", 1);
 
         double protein = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryProtein);
-        DietaryProteinText.text = "Dietary Protein:" + protein;
+        DietaryProteinText.text = FormatQuantity(protein, "g", 1);
 
         double water = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryWater);
-        DietaryWaterText.text = "Dietary Water:" + water;
+        DietaryWaterText.text = FormatQuantity(water, "ml", 1);
+    }
+
+    private string FormatQuantity(double value, string unit, int digits)
+    {
+        // Round the value to 1 decimal place and append the unit
+        return $"{Math.Round(value, digits)} {unit}";
     }
 }

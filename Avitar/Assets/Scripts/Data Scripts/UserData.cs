@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using BeliefEngine.HealthKit;
+using Inworld;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class UserData : MonoBehaviour
 {
     public static UserData Instance;
+
+    [SerializeField]
+    InworldUserSetting InWorldUserSettings;
 
     public Dictionary<string, List<QuantitySample>> QuantityTypeValues { get; set; }
     public Dictionary<string, List<CategorySample>> CategoryTypeValues { get; set; }
@@ -108,5 +112,15 @@ public class UserData : MonoBehaviour
             // > Fitzpatrick Skin Type: A characteristic type identifier for the user’s skin type.
             { HealthKitDataTypes.GetIdentifier(HKDataType.HKCharacteristicTypeIdentifierFitzpatrickSkinType), null }
         };
+    }
+
+    public void SetPlayerProfileFieldValue(string id, string value)
+    {
+        InWorldUserSettings.SetPlayerProfileFieldValue(id, value);
+    }
+
+    public string GetPlayerProfileFieldValue(string id)
+    {
+        return InWorldUserSettings.GetPlayerProfileFieldValue(id);
     }
 }

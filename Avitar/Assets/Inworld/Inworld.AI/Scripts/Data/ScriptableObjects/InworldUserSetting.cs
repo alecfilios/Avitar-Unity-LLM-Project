@@ -93,5 +93,29 @@ namespace Inworld
             InworldWorkspaceData wsData = m_Workspaces.FirstOrDefault(ws => ws.name == workspaceName);
             return wsData?.scenes.FirstOrDefault(scene => scene.name == sceneFullName);
         }
+
+        public void SetPlayerProfileFieldValue(string id, string value)
+        {
+            foreach (PlayerProfileField field in m_PlayerData)
+            {
+                if (field.fieldId == id)
+                {
+                    field.fieldValue = value;
+                }
+            }
+        }
+
+        public string GetPlayerProfileFieldValue(string id)
+        {
+            foreach (PlayerProfileField field in m_PlayerData)
+            {
+                if (field.fieldId == id)
+                {
+                    return field.fieldValue;
+                }
+            }
+            return "";
+        }
+
     }
 }

@@ -43,11 +43,14 @@ public class DiabetesPanel : OptionsPanelBase
         }
         //InsulinDeliveryText.text = insulinDelivery;
         InsulinDeliveryNumberText.text = insulinDeliveryCounter.ToString();
+        UserData.Instance.SetPlayerProfileFieldValue("insulin_deliveries", insulinDeliveryCounter.ToString());
 
 
         double bloodGlucose = HealthDataUtils.GetMostRecentQuantityValue(HKDataType.HKQuantityTypeIdentifierBloodGlucose);
 
         BloodGlucoseText.text = "Blood Glucose: " + FormatQuantity(bloodGlucose, "mmol/L", 0);
+        UserData.Instance.SetPlayerProfileFieldValue("blood_glucose", FormatQuantity(bloodGlucose, "mmol/L", 0));
+
     }
 
     private string FormatQuantity(double value, string unit, int digits)

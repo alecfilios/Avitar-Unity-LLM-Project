@@ -67,7 +67,7 @@ public class FakeQuantitySample : QuantitySample
                 quantity = new Quantity
                 {
                     unit = "bpm",
-                    doubleValue = UnityEngine.Random.Range(50, 100) // Random heart rate between 70bpm and 90bpm
+                    doubleValue = UnityEngine.Random.Range(20, 140) // Random heart rate between 70bpm and 90bpm
                 };
                 startDate = GenerateRandomDate(start, end);
                 endDate = GenerateRandomDate(startDate, end);

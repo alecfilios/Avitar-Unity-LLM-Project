@@ -2525,7 +2525,7 @@ MonoBehaviour:
       avatarImgOriginal: 
       thumbnailProgress: 0
       avatarProgress: 0
-    thumbnail: {fileID: 0}
+    thumbnail: {fileID: 2800000, guid: a3029e31508934efa8d5712160c269eb, type: 3}
   m_VerboseLog: 0
   onBeginSpeaking:
     m_PersistentCalls:

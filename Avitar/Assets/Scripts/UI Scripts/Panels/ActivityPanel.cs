@@ -27,9 +27,13 @@ public class ActivityPanel : OptionsPanelBase
     {
         double steps = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierStepCount);
         StepCountText.text = FormatQuantity(steps, "");
+        UserData.Instance.SetPlayerProfileFieldValue("steps", FormatQuantity(steps, ""));
+
 
         double distanceWalkingRunning = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDistanceWalkingRunning);
         DistanceWalkingRunningText.text = FormatQuantity(distanceWalkingRunning, "km");
+        UserData.Instance.SetPlayerProfileFieldValue("distance_walking_running", FormatQuantity(distanceWalkingRunning, "km"));
+
     }
 
     private string FormatQuantity(double value, string unit)

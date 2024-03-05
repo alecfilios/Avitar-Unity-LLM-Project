@@ -33,10 +33,11 @@ public class RadialMenu : MonoBehaviour
     [SerializeField]
     Button MenuButton;
 
-    private void Start()
+    private void Awake()
     {
         _entries = new List<RadialMenuEntry>();
     }
+
 
     private void Update()
     {

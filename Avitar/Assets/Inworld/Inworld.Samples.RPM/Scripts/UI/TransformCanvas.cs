@@ -42,7 +42,7 @@ namespace Inworld.Sample.RPM
             if (!newCharacter && oldCharacter)
                 m_Title.text = $"{oldCharacter.transform.name} Disconnected!";
         }
-        
+
         IEnumerator ShowRealAnswer()
         {
             yield return new WaitForSeconds(60f);
@@ -59,9 +59,10 @@ namespace Inworld.Sample.RPM
                 return;
             if (!m_CurrentCharacter)
                 return;
-            m_Stone.SetActive(false);
-            m_Avatar.SetActive(true);
-            m_LipAnimation.InitLipSync();
+            // m_Stone.SetActive(false);
+            // m_Avatar.SetActive(true);
+            // m_LipAnimation.InitLipSync();
+            Debug.Log("State of mind");
         }
     }
 }

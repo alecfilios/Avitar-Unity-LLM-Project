@@ -59,6 +59,7 @@ public class HeartPanel : OptionsPanelBase
         double heartRate = HealthDataUtils.GetMostRecentQuantityValue(HKDataType.HKQuantityTypeIdentifierHeartRate);
         int eventCounter = 0;
         HeartRateText.text = "Heart Rate: " + FormatQuantity(heartRate, "bpm", 0);
+        UserData.Instance.SetPlayerProfileFieldValue("heart_rate", FormatQuantity(heartRate, "", 0));
         // ----
         List<CategorySample> highHeartRateSamples = HealthDataUtils.GetCategorySamplesByType(HKDataType.HKCategoryTypeIdentifierHighHeartRateEvent);
         string highHeartRateEventText = "High Heart Rate Event:";
@@ -69,6 +70,7 @@ public class HeartPanel : OptionsPanelBase
             CreateEventOrb(HighHeartRateEventPrefab);
         }
         HighHeartRateEventNumberText.text = eventCounter.ToString();
+        UserData.Instance.SetPlayerProfileFieldValue("high_heart_rate_events", eventCounter.ToString());
         eventCounter = 0;
         // ----
         List<CategorySample> lowHeartRateSamples = HealthDataUtils.GetCategorySamplesByType(HKDataType.HKCategoryTypeIdentifierLowHeartRateEvent);
@@ -80,6 +82,7 @@ public class HeartPanel : OptionsPanelBase
             CreateEventOrb(LowHeartRateEventtPrefab);
         }
         LowHeartRateEventNumberText.text = eventCounter.ToString();
+        UserData.Instance.SetPlayerProfileFieldValue("low_heart_rate_events", eventCounter.ToString());
         eventCounter = 0;
         // ----
         List<CategorySample> irregularHeartRhythmSamples = HealthDataUtils.GetCategorySamplesByType(HKDataType.HKCategoryTypeIdentifierIrregularHeartRhythmEvent);
@@ -91,6 +94,7 @@ public class HeartPanel : OptionsPanelBase
             CreateEventOrb(IrregularHeartRhythmEventPrefab);
         }
         IrregularHeartRhythmEventNumberText.text = eventCounter.ToString();
+        UserData.Instance.SetPlayerProfileFieldValue("irregular_heart_rhythm_events", eventCounter.ToString());
         eventCounter = 0;
 
     }

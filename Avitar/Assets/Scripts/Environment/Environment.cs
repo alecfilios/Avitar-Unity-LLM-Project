@@ -23,7 +23,7 @@ public class Environment : MonoBehaviour
     {
         DateTime currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
-        if (currentHour >= 6 && currentHour < 18) // Assuming day is from 6 AM to 6 PM
+        if (true)//if (currentHour >= 6 && currentHour < 18) // Assuming day is from 6 AM to 6 PM
         {
             RenderSettings.skybox = daySkybox;
             RenderSettings.fogColor = dayColor;

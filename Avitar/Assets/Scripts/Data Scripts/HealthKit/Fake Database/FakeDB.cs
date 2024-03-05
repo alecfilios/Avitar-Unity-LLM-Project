@@ -64,8 +64,9 @@ public static class FakeDB
 
     private static List<FakeCategorySample> GenerateFakeCategorySamples(string key)
     {
+
         List<FakeCategorySample> samples = new List<FakeCategorySample>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < UnityEngine.Random.Range(0, 4); i++)
         {
             FakeCategorySample categorySample = new FakeCategorySample(key);
 

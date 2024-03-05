@@ -16,7 +16,7 @@ namespace Inworld.Sample
 
         [SerializeField] CharacterButton m_CharSelectorPrefab;
 
-        public override bool IsUIReady => base.IsUIReady  && m_CharSelectorPrefab;
+        public override bool IsUIReady => base.IsUIReady && m_CharSelectorPrefab;
         void OnEnable()
         {
             InworldController.CharacterHandler.OnCharacterRegistered += OnCharacterRegistered;
@@ -28,8 +28,6 @@ namespace Inworld.Sample
                 return;
             InworldController.CharacterHandler.OnCharacterRegistered -= OnCharacterRegistered;
         }
-
-
 
         void OnCharacterRegistered(InworldCharacterData charData)
         {
