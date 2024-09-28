@@ -15,29 +15,29 @@ MonoBehaviour:
   m_PlayerName: You
   m_PlayerData:
   - fieldId: blood_type
-    fieldValue: OPositive
+    fieldValue: APositive
   - fieldId: biological_sex
     fieldValue: 
   - fieldId: fitzpatrick_skin_type
     fieldValue: FitzpatrickSkinTypeV
   - fieldId: heart_rate
-    fieldValue: '33 '
+    fieldValue: '78 '
   - fieldId: high_heart_rate_events
-    fieldValue: 2
+    fieldValue: 1
   - fieldId: irregular_heart_rhythm_events
     fieldValue: 2
   - fieldId: low_heart_rate_events
-    fieldValue: 0
+    fieldValue: 3
   - fieldId: blood_glucose
-    fieldValue: 6 mmol/L
+    fieldValue: 5 mmol/L
   - fieldId: insulin_deliveries
     fieldValue: 10
   - fieldId: steps
-    fieldValue: '9895 '
+    fieldValue: '9832 '
   - fieldId: distance_walking_running
-    fieldValue: 2.6 km
+    fieldValue: 2.2 km
   - fieldId: distance_walking_running
-    fieldValue: 2.6 km
+    fieldValue: 2.2 km
   m_Workspaces:
   - name: workspaces/avitar
     displayName: Avitar

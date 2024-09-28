@@ -10,7 +10,6 @@ public class Environment : MonoBehaviour
     public Light directionalLight;
 
     public Color dayColor = new Color(1f, 0.6f, 0.25f);
-
     public Color nightColor = new Color(0.25f, 0.25f, 1f);
 
     // Start is called before the first frame update
@@ -23,7 +22,7 @@ public class Environment : MonoBehaviour
     {
         DateTime currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
-        if (true)//if (currentHour >= 6 && currentHour < 18) // Assuming day is from 6 AM to 6 PM
+        if (currentHour >= 6 && currentHour < 18) // Assuming day is from 6 AM to 6 PM
         {
             RenderSettings.skybox = daySkybox;
             RenderSettings.fogColor = dayColor;
