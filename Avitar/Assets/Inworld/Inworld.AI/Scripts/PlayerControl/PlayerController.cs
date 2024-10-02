@@ -31,9 +31,19 @@ namespace Inworld.Sample
         protected bool m_PTTKeyPressed;
         protected bool m_BlockAudioHandling;
 
+
+        string healthData = "";
+
+        public void SetHealthData(string data)
+        {
+            healthData = data;
+        }
         /// <summary>
         /// Send target message in the input field.
         /// </summary>
+        /// 
+
+
         public void SendText()
         {
             if (!m_InputField || string.IsNullOrEmpty(m_InputField.text) || !InworldController.CurrentCharacter)
@@ -41,7 +51,22 @@ namespace Inworld.Sample
             try
             {
                 if (InworldController.CurrentCharacter)
-                    InworldController.CurrentCharacter.SendText(m_InputField.text);
+                    InworldController.CurrentCharacter.SendText(m_InputField.text + healthData);
+                m_InputField.text = "";
+            }
+            catch (InworldException e)
+            {
+                InworldAI.LogWarning($"Failed to send text: {e}");
+            }
+        }
+        public void SendText(string healthData)
+        {
+            if (!m_InputField || string.IsNullOrEmpty(m_InputField.text) || !InworldController.CurrentCharacter)
+                return;
+            try
+            {
+                if (InworldController.CurrentCharacter)
+                    InworldController.CurrentCharacter.SendText(m_InputField.text + healthData);
                 m_InputField.text = "";
             }
             catch (InworldException e)
@@ -52,7 +77,7 @@ namespace Inworld.Sample
         /// <summary>
         /// Send target message for mind state
         /// </summary>
-        public void SendText(string text)
+        public void SendMindStateText(string text)
         {
             if (!m_InputField || string.IsNullOrEmpty(text) || !InworldController.CurrentCharacter)
                 return;

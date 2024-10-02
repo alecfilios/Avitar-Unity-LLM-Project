@@ -5,10 +5,8 @@
  * that can be found in the LICENSE.md file or at https://www.inworld.ai/sdk-license
  *************************************************************************************************/
 
-
 using Inworld.Entities;
-
-
+using UnityEngine;
 
 namespace Inworld.Sample
 {
@@ -18,15 +16,17 @@ namespace Inworld.Sample
         {
             if (m_PushToTalk)
             {
+
                 InworldController.CharacterHandler.ManualAudioHandling = true;
                 InworldController.Audio.AutoPush = false;
             }
         }
-        
+
         protected override void OnEnable()
         {
             base.OnEnable();
             InworldController.CharacterHandler.OnCharacterRegistered += OnCharacterRegistered;
+
         }
 
         protected override void OnDisable()
@@ -36,7 +36,7 @@ namespace Inworld.Sample
                 return;
             InworldController.CharacterHandler.OnCharacterRegistered -= OnCharacterRegistered;
         }
-        
+
         protected virtual void OnCharacterRegistered(InworldCharacterData charData)
         {
 

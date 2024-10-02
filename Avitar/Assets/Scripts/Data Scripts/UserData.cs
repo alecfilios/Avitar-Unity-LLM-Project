@@ -16,6 +16,7 @@ public class UserData : MonoBehaviour
     public Dictionary<string, List<CategorySample>> CategoryTypeValues { get; set; }
     public Dictionary<string, Characteristic> CharacteristicTypeValues { get; set; }
 
+    Dictionary<string, string> HealthData { get; set; }
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -34,6 +35,7 @@ public class UserData : MonoBehaviour
         InitQuantityData();
         InitCategoryData();
         InitCharacteristicData();
+        HealthData = new Dictionary<string, string>();
     }
 
     void InitQuantityData()
@@ -116,11 +118,23 @@ public class UserData : MonoBehaviour
 
     public void SetPlayerProfileFieldValue(string id, string value)
     {
-        InWorldUserSettings.SetPlayerProfileFieldValue(id, value);
+
+        // InWorldUserSettings.SetPlayerProfileFieldValue(id, value);
+        HealthData.Add(id, value);
     }
 
     public string GetPlayerProfileFieldValue(string id)
     {
         return InWorldUserSettings.GetPlayerProfileFieldValue(id);
+    }
+
+    public string GetHealthDictionaryFormatted()
+    {
+        string healthData = "\nHealth Data of the user for the last 24 hours [User them in your answer if needed]:\n";
+        foreach (var entry in HealthData)
+        {
+            healthData += $"{entry.Key}: {entry.Value}\n";
+        }
+        return healthData;
     }
 }

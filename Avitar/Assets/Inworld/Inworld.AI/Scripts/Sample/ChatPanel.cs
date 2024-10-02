@@ -14,6 +14,7 @@ using UnityEngine;
 
 namespace Inworld.Sample
 {
+
     [Serializable]
     public struct ChatOptions
     {
@@ -27,11 +28,19 @@ namespace Inworld.Sample
     }
     public class ChatPanel : BubblePanel
     {
+
+        public string healthData = "";
+
         [SerializeField] protected ChatBubble m_BubbleLeft;
         [SerializeField] protected ChatBubble m_BubbleRight;
         [SerializeField] protected ChatOptions m_ChatOptions;
         public override bool IsUIReady => base.IsUIReady && m_BubbleLeft && m_BubbleRight;
-        
+
+        public void SetHealthData(string data)
+        {
+            healthData = data;
+        }
+
         void OnEnable()
         {
             InworldController.Instance.OnCharacterInteraction += OnInteraction;
@@ -43,7 +52,7 @@ namespace Inworld.Sample
                 return;
             InworldController.Instance.OnCharacterInteraction -= OnInteraction;
         }
-        
+
         protected virtual void OnInteraction(InworldPacket incomingPacket)
         {
             switch (incomingPacket)
@@ -63,7 +72,7 @@ namespace Inworld.Sample
                 case RelationPacket relationPacket:
                     HandleRelation(relationPacket);
                     break;
-                case AudioPacket audioPacket: 
+                case AudioPacket audioPacket:
                     HandleAudio(audioPacket);
                     break;
                 case ControlPacket controlEvent:
@@ -134,7 +143,7 @@ namespace Inworld.Sample
                     // YAN: Player Input does not apply longBubbleMode.
                     //      And Key is always utteranceID.
                     key = textPacket.packetId.utteranceId;
-                    InsertBubble(key, m_BubbleRight, InworldAI.User.Name, false, textPacket.text.text, InworldAI.DefaultThumbnail);
+                    InsertBubble(key, m_BubbleRight, InworldAI.User.Name, false, textPacket.text.text.Replace(healthData, ""), InworldAI.DefaultThumbnail);
                     break;
             }
         }

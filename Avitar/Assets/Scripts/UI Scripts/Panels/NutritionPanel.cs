@@ -18,15 +18,20 @@ public class NutritionPanel : OptionsPanelBase
     {
         double fat = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryFatTotal);
         DietaryFatTotalText.text = FormatQuantity(fat, "g", 1);
+        UserData.Instance.SetPlayerProfileFieldValue("fat", FormatQuantity(fat, "g", 1));
 
         double carbohydrates = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryCarbohydrates);
         DietaryCarbohydratesText.text = FormatQuantity(carbohydrates, "g", 1);
+        UserData.Instance.SetPlayerProfileFieldValue("carbohydrates", FormatQuantity(carbohydrates, "g", 1));
 
         double protein = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryProtein);
         DietaryProteinText.text = FormatQuantity(protein, "g", 1);
+        UserData.Instance.SetPlayerProfileFieldValue("protein", FormatQuantity(protein, "g", 1));
 
         double water = HealthDataUtils.CalculateSumForQuantityType(HKDataType.HKQuantityTypeIdentifierDietaryWater);
         DietaryWaterText.text = FormatQuantity(water, "ml", 1);
+        UserData.Instance.SetPlayerProfileFieldValue("water", FormatQuantity(water, "ml", 1));
+
     }
 
     private string FormatQuantity(double value, string unit, int digits)

@@ -11,6 +11,9 @@ public class HomePanel : OptionsPanelBase
     [Header("AI")]
 
     [SerializeField]
+    ChatPanel chatPanel;
+
+    [SerializeField]
     GameObject InWorldUI;
 
     [SerializeField]
@@ -41,11 +44,10 @@ public class HomePanel : OptionsPanelBase
     public override void Init()
     {
         TriggerInteractionButtons(false);
-    }
-
-    private void OnEnable()
-    {
-
+        string healthData = UserData.Instance.GetHealthDictionaryFormatted();
+        chatPanel.SetHealthData(healthData);
+        Debug.Log(healthData);
+        playerController2D.SetHealthData(healthData);
     }
 
     public void OnValueChanged()
@@ -79,7 +81,7 @@ public class HomePanel : OptionsPanelBase
     public void OnClickStateOfMind()
     {
         StateOfMindButton.interactable = false;
-        playerController2D.SendText("I want you to make an analysis on my state of mind");
+        playerController2D.SendMindStateText("I want you to make an analysis on my state of mind using my HRV data?");
     }
 
     public void OnClickTriggerChat(bool trigger)
