@@ -125,12 +125,12 @@ public class UserData : MonoBehaviour
 
     public string GetPlayerProfileFieldValue(string id)
     {
-        return InWorldUserSettings.GetPlayerProfileFieldValue(id);
+        return HealthData[id];
     }
 
     public string GetHealthDictionaryFormatted()
     {
-        string healthData = "\nHealth Data of the user for the last 24 hours [User them in your answer if needed]:\n";
+        string healthData = "\n Strictly keep your answer brief\n[Optional]Health Data of the user for the last 24 hours [User them in your answer if needed]:\n";
         foreach (var entry in HealthData)
         {
             healthData += $"{entry.Key}: {entry.Value}\n";

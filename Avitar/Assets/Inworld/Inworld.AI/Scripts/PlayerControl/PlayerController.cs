@@ -33,10 +33,16 @@ namespace Inworld.Sample
 
 
         string healthData = "";
+        string hrvData = "";
 
         public void SetHealthData(string data)
         {
             healthData = data;
+        }
+
+        public void SetHRVData(string data)
+        {
+            hrvData = data;
         }
         /// <summary>
         /// Send target message in the input field.

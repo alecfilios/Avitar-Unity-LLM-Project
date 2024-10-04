@@ -11,6 +11,9 @@ public class HomePanel : OptionsPanelBase
     [Header("AI")]
 
     [SerializeField]
+    Avatar avatar;
+
+    [SerializeField]
     ChatPanel chatPanel;
 
     [SerializeField]
@@ -81,7 +84,8 @@ public class HomePanel : OptionsPanelBase
     public void OnClickStateOfMind()
     {
         StateOfMindButton.interactable = false;
-        playerController2D.SendMindStateText("I want you to make an analysis on my state of mind using my HRV data?");
+        string hrvData = avatar.OnGoalComplete("initiate_hrv_analysis");
+        
     }
 
     public void OnClickTriggerChat(bool trigger)

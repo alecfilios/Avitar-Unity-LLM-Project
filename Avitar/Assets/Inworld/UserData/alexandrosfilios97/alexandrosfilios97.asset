@@ -13,31 +13,7 @@ MonoBehaviour:
   m_Name: alexandrosfilios97
   m_EditorClassIdentifier: 
   m_PlayerName: You
-  m_PlayerData:
-  - fieldId: blood_type
-    fieldValue: BNegative
-  - fieldId: biological_sex
-    fieldValue: 
-  - fieldId: fitzpatrick_skin_type
-    fieldValue: FitzpatrickSkinTypeIV
-  - fieldId: heart_rate
-    fieldValue: '126 '
-  - fieldId: high_heart_rate_events
-    fieldValue: 0
-  - fieldId: irregular_heart_rhythm_events
-    fieldValue: 3
-  - fieldId: low_heart_rate_events
-    fieldValue: 3
-  - fieldId: blood_glucose
-    fieldValue: 6 mmol/L
-  - fieldId: insulin_deliveries
-    fieldValue: 10
-  - fieldId: steps
-    fieldValue: '10236 '
-  - fieldId: distance_walking_running
-    fieldValue: 3.2 km
-  - fieldId: distance_walking_running
-    fieldValue: 3.2 km
+  m_PlayerData: []
   m_Workspaces:
   - name: workspaces/avitar
     displayName: Avitar

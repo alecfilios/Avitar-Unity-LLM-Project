@@ -109,86 +109,57 @@ public class Avatar : MonoBehaviour
         AnimationClip clip = island.GetClip();
         animator.Play(clip.name, 0);
     }
-
-    /// <summary>
-    /// Callback function registered in the UnityEvent of InworldCharacter.
-    /// </summary>
-    /// <param name="trigger">the callback trigger to process.</param>
-    public void OnGoalComplete(string trigger)
+    public string OnGoalComplete(string trigger)
     {
         if (trigger == "initiate_hrv_analysis")
         {
-
             int heartRate = int.Parse(UserData.Instance.GetPlayerProfileFieldValue("heart_rate"));
             int highHeartRateEvents = int.Parse(UserData.Instance.GetPlayerProfileFieldValue("high_heart_rate_events"));
             int lowHeartRateEvents = int.Parse(UserData.Instance.GetPlayerProfileFieldValue("low_heart_rate_events"));
             int irregularHeartRateEvents = int.Parse(UserData.Instance.GetPlayerProfileFieldValue("irregular_heart_rhythm_events"));
-            // Init the overall stress level
+
+            float baselineHRV = 50;
+            float hrvScore = CalculateHRV(heartRate, baselineHRV);
             float overallStressLevel = 0;
 
-            if (heartRate < 30 || heartRate > 130)
-            {
-                overallStressLevel += 0.7f;
-            }
-            else if (heartRate < 40 || heartRate > 120)
-            {
-                overallStressLevel += 0.5f;
-            }
-            else if (heartRate < 50 || heartRate > 110)
-            {
-                overallStressLevel += 0.2f;
-            }
-            else
-            {
-                // Do nothing
-            }
-
+            if (hrvScore < 20) overallStressLevel += 0.8f;
+            else if (hrvScore < 30) overallStressLevel += 0.6f;
+            else if (hrvScore < 40) overallStressLevel += 0.4f;
+            else if (hrvScore < 50) overallStressLevel += 0.2f;
 
             overallStressLevel += 0.05f * Mathf.Min(highHeartRateEvents, 4);
             overallStressLevel += 0.05f * Mathf.Min(lowHeartRateEvents, 4);
             overallStressLevel += 0.05f * Mathf.Min(irregularHeartRateEvents, 4);
 
-
-            Debug.Log("heartRate: " + heartRate);
-            Debug.Log("highHeartRateEvents: " + highHeartRateEvents);
-            Debug.Log("lowHeartRateEvents: " + lowHeartRateEvents);
-            Debug.Log("irregularHeartRateEvents: " + irregularHeartRateEvents);
-
             Material[] temp = new Material[3];
             temp[0] = skinnedMeshRenderer.materials[0];
             temp[1] = skinnedMeshRenderer.materials[1];
 
-            string label = "State of mind: ";
-            // Analytical categorization based on overall stress level
-            if (overallStressLevel >= 0.8f)
-            {
+            string label = overallStressLevel >= 0.8f ? "Overwhelmed" :
+                           overallStressLevel >= 0.6f ? "Highly Stressed" :
+                           overallStressLevel >= 0.4f ? "Moderately Stressed" :
+                           overallStressLevel >= 0.2f ? "Mildly Stressed" : "Not Stressed";
 
-                label += "Overwhelmed";
-                temp[2] = stressLevelMaterials[4];
-            }
-            else if (overallStressLevel >= 0.6f)
-            {
-                label += "Highly Stressed";
-                temp[2] = stressLevelMaterials[3];
-            }
-            else if (overallStressLevel >= 0.4f)
-            {
-                label += "Moderately Stressed";
-                temp[2] = stressLevelMaterials[2];
-            }
-            else if (overallStressLevel >= 0.2f)
-            {
-                label += "Mildly Stressed";
-                temp[2] = stressLevelMaterials[1];
-            }
-            else
-            {
-                label += "Not Stressed";
-                temp[2] = stressLevelMaterials[0];
-            }
-            stressLabel.text = label;
+            temp[2] = stressLevelMaterials[
+                overallStressLevel >= 0.8f ? 4 :
+                overallStressLevel >= 0.6f ? 3 :
+                overallStressLevel >= 0.4f ? 2 :
+                overallStressLevel >= 0.2f ? 1 : 0
+            ];
+
+            stressLabel.text = $"State of mind: {label}";
             stressLabel.color = temp[2].color;
             skinnedMeshRenderer.materials = temp;
+
+            return $"HRV Score: {hrvScore}\nState of Mind: {label}";
         }
+        return "";
     }
+
+    private float CalculateHRV(int heartRate, float baselineHRV)
+    {
+        float hrv = baselineHRV - Mathf.Abs(heartRate - 60) * 0.5f;
+        return Mathf.Max(hrv, 0);
+    }
+
 }
