@@ -118,7 +118,6 @@ public class UserData : MonoBehaviour
 
     public void SetPlayerProfileFieldValue(string id, string value)
     {
-
         // InWorldUserSettings.SetPlayerProfileFieldValue(id, value);
         HealthData.Add(id, value);
     }
@@ -135,6 +134,7 @@ public class UserData : MonoBehaviour
         {
             healthData += $"{entry.Key}: {entry.Value}\n";
         }
+        Debug.Log(healthData);
         return healthData;
     }
 }

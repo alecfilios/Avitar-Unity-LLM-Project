@@ -44,10 +44,12 @@ public class HomePanel : OptionsPanelBase
     [SerializeField]
     Button SendChatButton;
 
+    private string hrvData = "";
+
     public override void Init()
     {
         TriggerInteractionButtons(false);
-        string healthData = UserData.Instance.GetHealthDictionaryFormatted();
+        string healthData = UserData.Instance.GetHealthDictionaryFormatted() + hrvData;
         chatPanel.SetHealthData(healthData);
         Debug.Log(healthData);
         playerController2D.SetHealthData(healthData);
@@ -84,8 +86,11 @@ public class HomePanel : OptionsPanelBase
     public void OnClickStateOfMind()
     {
         StateOfMindButton.interactable = false;
-        string hrvData = avatar.OnGoalComplete("initiate_hrv_analysis");
-        
+        hrvData = avatar.OnGoalComplete();
+        Init();
+        TriggerInteractionButtons(true);
+
+
     }
 
     public void OnClickTriggerChat(bool trigger)
